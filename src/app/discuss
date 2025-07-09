@@ -1,0 +1,10 @@
+api==>createUser.ts,createImg.ts,getImgs.ts
+page==>create.tsx,getImgs.tsx
+
+push to github 
+
+ther pull form github and  add  
+api==>deleteImgs.ts
+page==>update getImgs.tsx
+
+then push to github 

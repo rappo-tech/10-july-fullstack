@@ -1,0 +1,25 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Allboy {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  boyName   String
+  allImg    AllImg[]
+}
+
+model AllImg {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  boyId     String
+  boy       Allboy   @relation(fields: [boyId], references: [id], onDelete: Cascade)
+  imgUrl    String
+  publicId  String
+}
+
