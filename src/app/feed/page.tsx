@@ -28,11 +28,20 @@ setStatus('err while geting img ')
 }
 },[boyName])
 
+const  deleteImg=useCallback(async(publicId:string)=>{
+try{
+const response=await  axios.delete('/api2/deleteImg',{data:{boyName,publicId},headers:{'Content-Type':"application/json"},withCredentials:true})
+if(response.status===202){
+setStatus(response.data)
+}
+}catch{
+setStatus('try catch delete ')
+}
+},[boyName])
+
 return (<div>
 
 <button  onClick={getImg} className="bg-yellow-400">get img</button>
-
-
 
 <div>{
 arr.map((elemnt,index)=>{
@@ -44,7 +53,7 @@ src={elemnt.imgUrl}
 height={300}
  className="border rounded"
 />
-<button className="bg-red-600" >delete :{elemnt.publicId}</button>
+<button className="bg-red-600" onClick={()=>deleteImg(elemnt.publicId)} >delete :{elemnt.publicId}</button>
 </div>
 })
     }</div>
