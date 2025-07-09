@@ -57,6 +57,8 @@ setStatus('try catch img ')
 
 return (<div>
 
+<p className="bg-red-800">after cloneing it </p>
+
 <form onSubmit={createUser}>
 <input
 type="text"
